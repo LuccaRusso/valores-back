@@ -1,3 +1,9 @@
 runtime: java
 env:
   JDK_VERSION: 17
+
+services:
+  - type: web
+    name: valores-back
+    env: docker
+    dockerfilePath: Dockerfile
