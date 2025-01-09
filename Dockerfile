@@ -1,5 +1,5 @@
 # Use uma imagem oficial do OpenJDK como base
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
 # Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
