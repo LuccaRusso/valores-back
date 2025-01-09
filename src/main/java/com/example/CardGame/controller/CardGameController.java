@@ -3,10 +3,7 @@ package com.example.CardGame.controller;
 import com.example.CardGame.database.Connection;
 import com.example.CardGame.dto.User;
 import com.example.CardGame.service.CardGameService;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
 import lombok.RequiredArgsConstructor;
-import org.bson.conversions.Bson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

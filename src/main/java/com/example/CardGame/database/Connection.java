@@ -11,7 +11,7 @@ import org.bson.conversions.Bson;
 
 public class Connection {
 
-    private static final String URI = "mongodb://root:mongoInit001@localhost:27018/?appName=switch?database=switch";
+    private static final String URI = "mongodb+srv://Lucca:julianno16%40@cluster0.cmplp.mongodb.net/";
     private static String DATABASE_NAME;
     private MongoClient mongoClient;
     private MongoDatabase database;
@@ -24,7 +24,7 @@ public class Connection {
     }
 
     public static void insert(User user) {
-        MongoCollection<Document> collection = MongoClients.create("mongodb://root:mongoInit001@localhost:27018/?appName=switch?database=switch").getDatabase("picpay-desafio").getCollection("user");
+        MongoCollection<Document> collection = MongoClients.create("mongodb+srv://Lucca:julianno16%40@cluster0.cmplp.mongodb.net/").getDatabase("picpay-desafio").getCollection("user");
         Document document = new Document("_id", user.getEmail())
                 .append("name", user.getName())
                 .append("password", user.getPassword())
@@ -34,7 +34,7 @@ public class Connection {
     }
 
     public static void save(Bson filter, Bson update) {
-        MongoCollection<Document> collection = MongoClients.create("mongodb://root:mongoInit001@localhost:27018/?appName=switch?database=switch").getDatabase("picpay-desafio").getCollection("user");
+        MongoCollection<Document> collection = MongoClients.create("mongodb+srv://Lucca:julianno16%40@cluster0.cmplp.mongodb.net/").getDatabase("picpay-desafio").getCollection("user");
         collection.updateOne(filter, update);
         System.out.println("Documento atualizado com sucesso!");
     }
