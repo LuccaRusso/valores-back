@@ -1,33 +1,25 @@
 package com.example.CardGame.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "user")
 @AllArgsConstructor
 @NoArgsConstructor
+@TypeAlias("User")
 public class User {
-
-    private String name;
 
     @Id
     private String email;
 
+    private String name;
+
     private String password;
 
-    private String point;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private int point;
 
     public String getEmail() {
         return email;
@@ -35,6 +27,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -45,11 +45,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPoint() {
+    public int getPoint() {
         return point;
     }
 
-    public void setPoint(String point) {
+    public void setPoint(int point) {
         this.point = point;
     }
 }
