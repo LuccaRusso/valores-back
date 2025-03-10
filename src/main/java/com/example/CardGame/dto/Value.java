@@ -5,32 +5,40 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@Document(collection = "valores")
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "valores")
 @TypeAlias("Value")
 public class Value {
 
     @Id
-    private String value;
+    private String id;
 
-    private int question;
+    private String question;
 
-    public String getValue() {
-        return value;
+    private String answer;
+
+    public String getId() {
+        return id;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public int getQuestion() {
+    public String getQuestion() {
         return question;
     }
 
-    public void setQuestion(int question) {
+    public void setQuestion(String question) {
         this.question = question;
     }
 
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 }

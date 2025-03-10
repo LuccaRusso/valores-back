@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @CrossOrigin(origins = "https://site-ggqf.onrender.com")
 @RestController
 @RequiredArgsConstructor
@@ -15,26 +17,23 @@ public class UserController {
     @Autowired
     private UserUseCase userUseCase;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @PostMapping("/signup")
-    public Boolean doPostSingUp(@RequestBody User user) {
-        return userUseCase.verify(user);
+    @PostMapping("/signup/{id}")
+    public boolean doPostUser(@PathVariable String id, @RequestBody User user){
+        return userUseCase.verify(id, user);
     }
 
-    @GetMapping("/login")
-    public Boolean doPostLogin(@RequestBody User user){
-        return userUseCase.findLogin(user);
+    @PostMapping("/login/{id}")
+    public boolean doLogin(@PathVariable String id, @RequestBody User user){
+        return userUseCase.login(id, user);
     }
 
-    @PutMapping("/doPoint")
-    public String doPutPoint(@RequestBody User user){
+    @PostMapping("/point")
+    public String updatePoint(@RequestBody User user){
         return userUseCase.insertPoint(user);
     }
 
-    @GetMapping("/score")
-    public int doGetScore(@RequestBody User user){
-        return userUseCase.getScore(user);
+    @GetMapping("/user/{id}")
+    public Optional<User> doGetUser(@PathVariable String id){
+        return userUseCase.getUser(id);
     }
 }

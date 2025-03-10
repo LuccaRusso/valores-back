@@ -5,6 +5,8 @@ import com.example.CardGame.dto.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ValueUseCase {
 
@@ -15,16 +17,7 @@ public class ValueUseCase {
             this.valueRepository = valueRepository;
         }
 
-        public String insertValue(Value value){
-            try{
-                valueRepository.insert(value);
-                return "Valor inserido com sucesso!";
-            }catch (Exception e){
-                return "Valor não inserido no banco!";
-            }
-        }
-
-        public boolean compareTo(Value value){
-            return valueRepository.findByAll(value.getValue(),value.getQuestion()).isPresent();
+        public Optional<Value> getValue(String id){
+            return valueRepository.findById(id);
         }
 }

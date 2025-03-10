@@ -6,14 +6,14 @@ import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Document(collection = "user")
 @AllArgsConstructor
 @NoArgsConstructor
 @TypeAlias("User")
+@Document(collection = "user")
 public class User {
 
     @Id
-    private String email;
+    private String id;
 
     private String name;
 
@@ -21,12 +21,12 @@ public class User {
 
     private int point;
 
-    public String getEmail() {
-        return email;
+    public String getId() {
+        return id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
