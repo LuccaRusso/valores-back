@@ -27,10 +27,8 @@ public class UserUseCase {
     }
 
     public String insertPoint(User user) {
-        Optional<User> user1 = userRepository.findById(user.getId());
-        user.setPoint(user1.get().getPoint() + 10);
         userRepository.save(user);
-        return "Sua pontuação " + user.getPoint();
+        return String.valueOf(user.getPoint());
     }
 
     public boolean login(String id, User user){

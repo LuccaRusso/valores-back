@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "https://site-ggqf.onrender.com")
+@CrossOrigin(origins = "https://react-front-ngs2.onrender.com")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
